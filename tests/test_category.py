@@ -1,5 +1,3 @@
-
-
 def test_category1_init(category1, product1, product2, product3):
     assert category1.name == "Смартфоны"
     assert (

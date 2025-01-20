@@ -1,5 +1,4 @@
-from products import Product
-from products import product1, product2, product3
+from products import Product, product1, product2, product3
 
 
 class Category:
@@ -23,6 +22,7 @@ class Category:
     def reset_counters(cls):
         cls.category_count = 0
         cls.product_count = 0
+
 
 category1 = Category(
     "Смартфоны",
