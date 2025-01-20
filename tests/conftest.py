@@ -1,6 +1,14 @@
 import pytest
 
-from src.main import Category, Product
+from src.category import Category
+from src.products import Product
+
+
+@pytest.fixture(scope='module', autouse=True)
+def reset_category_counters():
+    Category.reset_counters()  # Сброс счетчиков перед каждым тестом
+    # yield
+    # Category.reset_counters()  # Дополнительно сброс после теста, если необходимо
 
 
 @pytest.fixture
