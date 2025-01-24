@@ -20,3 +20,7 @@ def test_category2_init(category2, product4):
     assert len(category2.products) == 1
     assert category2.category_count == 2
     assert category2.product_count == 4
+
+
+def test_category_products_property(category1, product3, product2, product1):
+    assert category1.products == [product1, product2, product3]
