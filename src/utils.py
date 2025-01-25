@@ -1,8 +1,8 @@
 import json
 import os
 
-from products import Product
 from category import Category
+from products import Product
 
 
 def read_json(path: str) -> dict:

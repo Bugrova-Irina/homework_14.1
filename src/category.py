@@ -22,10 +22,15 @@ class Category:
     def products(self):
         return self.__products
 
-    def add_product(self, product):
-        self.__products.append(product)
-        Category.product_count += 1
-        print(f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n")
+    def add_product(self, product: Product):
+        if not isinstance(product, Product):
+            raise TypeError("Ожидается объект типа 'Product'")
+        else:
+            self.__products.append(product)
+            Category.product_count += 1
+            print(
+                f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            )
 
     @classmethod
     def reset_counters(cls):
@@ -45,3 +50,7 @@ product4 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0,
 category1.add_product(product4)
 print(category1.products)
 print(category1.product_count)
+
+# product5 = ('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+# category1.add_product(product5)
+# print(category1.products)

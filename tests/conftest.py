@@ -61,3 +61,8 @@ def product():
             "quantity": 5,
         }
     )
+
+
+@pytest.fixture
+def bad_product():
+    return '55" QLED 4K', "Фоновая подсветка", 123000.0, 7
