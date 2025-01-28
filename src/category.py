@@ -18,6 +18,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(self.__products) if self.__products else 0
 
+    def __str__(self):
+        sum_quantity = 0
+        for product in self.products:
+            sum_quantity += int(product.quantity)
+        return f"{self.name}, количество продуктов: {sum_quantity} шт."
+
     @property
     def products(self):
         return self.__products
@@ -28,9 +34,7 @@ class Category:
         else:
             self.__products.append(product)
             Category.product_count += 1
-            print(
-                f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
-            )
+            print(f"{str(product)}\n")
 
     @classmethod
     def reset_counters(cls):
@@ -53,4 +57,8 @@ print(category1.product_count)
 
 # product5 = ('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
 # category1.add_product(product5)
+# print(category1.products)
+
+print(str(category1))
+
 # print(category1.products)
