@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_category1_init(category1, product1, product2, product3):
     assert category1.name == "Смартфоны"
     assert (
@@ -20,3 +23,12 @@ def test_category2_init(category2, product4):
     assert len(category2.products) == 1
     assert category2.category_count == 2
     assert category2.product_count == 4
+
+
+def test_category_products_property(category1, product3, product2, product1):
+    assert category1.products == [product1, product2, product3]
+
+
+def test_category_add_bad_product(category1, bad_product):
+    with pytest.raises(TypeError, match="Ожидается объект типа 'Product'"):
+        category1.add_product(bad_product)

@@ -49,3 +49,20 @@ def category2(product4):
         "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
         [product4],
     )
+
+
+@pytest.fixture
+def product():
+    return Product.new_product(
+        {
+            "name": "Samsung Galaxy S23 Ultra",
+            "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180000.0,
+            "quantity": 5,
+        }
+    )
+
+
+@pytest.fixture
+def bad_product():
+    return '55" QLED 4K', "Фоновая подсветка", 123000.0, 7

@@ -9,8 +9,27 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
+    @classmethod
+    def new_product(cls, new_product: dict):
+        name = new_product["name"]
+        description = new_product["description"]
+        price = new_product["price"]
+        quantity = new_product["quantity"]
+        return cls(name, description, price, quantity)
+
+    @property
+    def price(self):
+        return self.__price
+
+    @price.setter
+    def price(self, new_price: float):
+        if new_price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+        self.__price = new_price
 
 
 product1 = Product(
@@ -33,3 +52,24 @@ print(product3.name)
 print(product3.description)
 print(product3.price)
 print(product3.quantity)
+
+new_product = Product.new_product(
+    {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5,
+    }
+)
+print(new_product.name)
+print(new_product.description)
+print(new_product.price)
+print(new_product.quantity)
+
+new_product.price = 800
+print(new_product.price)
+
+new_product.price = -100
+print(new_product.price)
+new_product.price = 0
+print(new_product.price)
