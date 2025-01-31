@@ -1,25 +1,42 @@
 from products import Product
+
 # from smartphone import smartphone1
 
 
 class LawnGrass(Product):
     """Класс Газонная трава"""
 
-    def __init__(self, name, description, price, quantity, country, germination_period, color):
-        super().__init__(name, description, price, quantity) # наследуем атрибуты от класса Product
+    def __init__(
+        self, name, description, price, quantity, country, germination_period, color
+    ):
+        super().__init__(
+            name, description, price, quantity
+        )  # наследуем атрибуты от класса Product
         self.country = country
         self.germination_period = germination_period
         self.color = color
 
     def __add__(self, other):
         """Сложение цен и кол-ва продуктов"""
-        if type(other) is LawnGrass: # можно складывать только продукты класса LawnGrass
+        if (
+            type(other) is LawnGrass
+        ):  # можно складывать только продукты класса LawnGrass
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
 
 
-grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
-grass2 = LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+grass1 = LawnGrass(
+    "Газонная трава",
+    "Элитная трава для газона",
+    500.0,
+    20,
+    "Россия",
+    "7 дней",
+    "Зеленый",
+)
+grass2 = LawnGrass(
+    "Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый"
+)
 
 print(grass1.name)
 print(grass1.description)

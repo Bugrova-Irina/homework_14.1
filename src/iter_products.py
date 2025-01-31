@@ -4,6 +4,7 @@ from products import Product
 
 class ProductIterator:
     """Перебор товаров одной категории"""
+
     def __init__(self, category_obj):
         self.category = category_obj
         self.index = 0

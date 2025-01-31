@@ -1,5 +1,5 @@
-from products import Product, product1, product2, product3
 from lawngrass import grass1, grass2
+from products import Product, product1, product2, product3
 from smartphone import smartphone1, smartphone2, smartphone3
 
 
@@ -69,8 +69,12 @@ print(str(category1))
 
 # print(category1.products)
 
-category_smartphones = Category("Смартфоны", "Высокотехнологичные смартфоны", [smartphone1, smartphone2])
-category_grass = Category("Газонная трава", "Различные виды газонной травы", [grass1, grass2])
+category_smartphones = Category(
+    "Смартфоны", "Высокотехнологичные смартфоны", [smartphone1, smartphone2]
+)
+category_grass = Category(
+    "Газонная трава", "Различные виды газонной травы", [grass1, grass2]
+)
 
 category_smartphones.add_product(smartphone3)
 

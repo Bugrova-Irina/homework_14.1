@@ -12,9 +12,14 @@ def test_smartphone_init(smartphone1):
     assert smartphone1.memory == 256
     assert smartphone1.color == "Серый"
 
+
 def test_smartphone_add(smartphone1, smartphone2):
     """Проверяем сложение объектов одного класса"""
-    assert smartphone1.price * smartphone1.quantity + smartphone2.price * smartphone2.quantity == 2580000.0
+    assert (
+        smartphone1.price * smartphone1.quantity
+        + smartphone2.price * smartphone2.quantity
+        == 2580000.0
+    )
 
 
 def test_smartphone_add_error(smartphone1):
