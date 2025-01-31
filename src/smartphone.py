@@ -1,13 +1,22 @@
 from products import Product
+# from lawngrass import grass1
 
 
 class Smartphone(Product):
+    """Класс Смартфон"""
+
     def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
-        super().__init__(name, description, price, quantity)
+        super().__init__(name, description, price, quantity) # наследуем атрибуты от класса Product
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
         self.color = color
+
+    def __add__(self, other):
+        """Сложение цен и кол-ва продуктов"""
+        if type(other) is Smartphone: # можно складывать только продукты класса Smartphone
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
 
 
 smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
@@ -41,3 +50,13 @@ print(smartphone3.efficiency)
 print(smartphone3.model)
 print(smartphone3.memory)
 print(smartphone3.color)
+
+smartphone_sum = smartphone1 + smartphone2
+print(smartphone_sum)
+
+# try:
+#     invalid_sum = smartphone1 + grass1
+# except TypeError:
+#     print("Возникла ошибка TypeError при попытке сложения")
+# else:
+#     print("Не возникла ошибка TypeError при попытке сложения")

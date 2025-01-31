@@ -1,12 +1,21 @@
 from products import Product
+# from smartphone import smartphone1
 
 
 class LawnGrass(Product):
+    """Класс Газонная трава"""
+
     def __init__(self, name, description, price, quantity, country, germination_period, color):
-        super().__init__(name, description, price, quantity)
+        super().__init__(name, description, price, quantity) # наследуем атрибуты от класса Product
         self.country = country
         self.germination_period = germination_period
         self.color = color
+
+    def __add__(self, other):
+        """Сложение цен и кол-ва продуктов"""
+        if type(other) is LawnGrass: # можно складывать только продукты класса LawnGrass
+            return self.price * self.quantity + other.price * other.quantity
+        raise TypeError
 
 
 grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
@@ -27,3 +36,13 @@ print(grass2.quantity)
 print(grass2.country)
 print(grass2.germination_period)
 print(grass2.color)
+
+grass_sum = grass1 + grass2
+print(grass_sum)
+
+# try:
+#     invalid_sum = smartphone1 + grass1
+# except TypeError:
+#     print("Возникла ошибка TypeError при попытке сложения")
+# else:
+#     print("Не возникла ошибка TypeError при попытке сложения")
