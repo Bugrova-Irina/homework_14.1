@@ -32,3 +32,7 @@ def test_category_products_property(category1, product3, product2, product1):
 def test_category_add_bad_product(category1, bad_product):
     with pytest.raises(TypeError, match="Ожидается объект типа 'Product'"):
         category1.add_product(bad_product)
+
+
+def test_str_category(category1):
+    assert str(category1) == "Смартфоны, количество продуктов: 27 шт."
