@@ -13,13 +13,21 @@ class Product:
         self.quantity = quantity
 
     def __str__(self):
+        """строковое отображение продукта"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        return self.__price * self.quantity + other.__price * other.quantity
+        """Сложение продуктов"""
+        if type(self) != type(other):
+            raise TypeError("Можно складывать только объекты одного класса")
+        return (self.__price * self.quantity) + (other.__price * other.quantity)
 
     @classmethod
     def new_product(cls, new_product: dict):
+        """
+        Принимает на вход параметры товара в словаре и
+        возвращает созданный объект класса Product
+        """
         name = new_product["name"]
         description = new_product["description"]
         price = new_product["price"]
@@ -28,10 +36,12 @@ class Product:
 
     @property
     def price(self):
+        """Вывод цены"""
         return self.__price
 
     @price.setter
     def price(self, new_price: float):
+        """Устанавливаем новую цену, если она > 0"""
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return

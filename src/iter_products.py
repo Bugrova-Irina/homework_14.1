@@ -3,15 +3,19 @@ from products import Product
 
 
 class ProductIterator:
+    """Перебор товаров одной категории"""
+
     def __init__(self, category_obj):
         self.category = category_obj
         self.index = 0
 
     def __iter__(self):
+        """получение итератора для перебора продуктов"""
         self.index = 0
         return self
 
     def __next__(self):
+        """переход к следующему значению и его считывание"""
         if self.index < len(self.category.products):
             product = self.category.products[self.index]
             self.index += 1

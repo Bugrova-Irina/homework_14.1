@@ -36,3 +36,14 @@ def test_category_add_bad_product(category1, bad_product):
 
 def test_str_category(category1):
     assert str(category1) == "Смартфоны, количество продуктов: 27 шт."
+
+
+def test_products_iterator(products_iterator):
+    iter(products_iterator)
+    assert products_iterator.index == 0
+    assert next(products_iterator).name == "Samsung Galaxy S23 Ultra"
+    assert next(products_iterator).name == "Iphone 15"
+    assert next(products_iterator).name == "Xiaomi Redmi Note 11"
+
+    with pytest.raises(StopIteration):
+        next(products_iterator)
