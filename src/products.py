@@ -1,4 +1,7 @@
-class Product:
+from baseproduct import BaseProduct
+
+
+class Product(BaseProduct):
     """Класс Product"""
 
     name: str
