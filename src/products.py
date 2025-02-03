@@ -18,7 +18,9 @@ class Product:
 
     def __add__(self, other):
         """Сложение продуктов"""
-        return self.__price * self.quantity + other.__price * other.quantity
+        if type(self) != type(other):
+            raise TypeError("Можно складывать только объекты одного класса")
+        return (self.__price * self.quantity) + (other.__price * other.quantity)
 
     @classmethod
     def new_product(cls, new_product: dict):

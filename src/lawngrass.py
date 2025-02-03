@@ -16,14 +16,6 @@ class LawnGrass(Product):
         self.germination_period = germination_period
         self.color = color
 
-    def __add__(self, other):
-        """Сложение цен и кол-ва продуктов"""
-        if (
-            type(other) is LawnGrass
-        ):  # можно складывать только продукты класса LawnGrass
-            return self.price * self.quantity + other.price * other.quantity
-        raise TypeError
-
 
 grass1 = LawnGrass(
     "Газонная трава",

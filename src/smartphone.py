@@ -17,14 +17,6 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
-    def __add__(self, other):
-        """Сложение цен и кол-ва продуктов"""
-        if (
-            type(other) is Smartphone
-        ):  # можно складывать только продукты класса Smartphone
-            return self.price * self.quantity + other.price * other.quantity
-        raise TypeError
-
 
 smartphone1 = Smartphone(
     "Samsung Galaxy S23 Ultra",
