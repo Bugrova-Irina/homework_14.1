@@ -121,3 +121,11 @@ def grass2():
 @pytest.fixture
 def products_iterator(category1):
     return ProductIterator(category1)
+
+
+@pytest.fixture
+def category_without_products():
+    return Category(
+        "Телевизоры",
+        "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
+    )
