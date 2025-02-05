@@ -1,4 +1,8 @@
-class Product:
+from baseproduct import BaseProduct
+from print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс Product"""
 
     name: str
@@ -11,6 +15,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         """строковое отображение продукта"""
@@ -69,31 +74,31 @@ print(product3.description)
 print(product3.price)
 print(product3.quantity)
 
-new_product = Product.new_product(
-    {
-        "name": "Samsung Galaxy S23 Ultra",
-        "description": "256GB, Серый цвет, 200MP камера",
-        "price": 180000.0,
-        "quantity": 5,
-    }
-)
-print(new_product.name)
-print(new_product.description)
-print(new_product.price)
-print(new_product.quantity)
-
-new_product.price = 800
-print(new_product.price)
-
-new_product.price = -100
-print(new_product.price)
-new_product.price = 0
-print(new_product.price)
-
-print(str(product1))
-print(str(product2))
-print(str(product3))
-
-print(product1 + product2)
-print(product1 + product3)
-print(product2 + product3)
+# new_product = Product.new_product(
+#     {
+#         "name": "Samsung Galaxy S23 Ultra",
+#         "description": "256GB, Серый цвет, 200MP камера",
+#         "price": 180000.0,
+#         "quantity": 5,
+#     }
+# )
+# print(new_product.name)
+# print(new_product.description)
+# print(new_product.price)
+# print(new_product.quantity)
+#
+# new_product.price = 800
+# print(new_product.price)
+#
+# new_product.price = -100
+# print(new_product.price)
+# new_product.price = 0
+# print(new_product.price)
+#
+# print(str(product1))
+# print(str(product2))
+# print(str(product3))
+#
+# print(product1 + product2)
+# print(product1 + product3)
+# print(product2 + product3)
